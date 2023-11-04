@@ -1,3 +1,9 @@
+firebase.auth().onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "../home/home.html";
+    }
+})
+
 function onChangeEmail() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
@@ -22,8 +28,9 @@ function onChangeConfirmPassword() {
     toggleRegisterButtonDisable();
 }
 
-function register(){
+function register() {
     showLoading();
+
     const email = form.email().value;
     const password = form.password().value;
     firebase.auth().createUserWithEmailAndPassword(
@@ -37,9 +44,9 @@ function register(){
     })
 }
 
-function getErrorMessage(error){
-    if (error.code == "auth/email-already-in-use"){
-        return "Email já está em uso"
+function getErrorMessage(error) {
+    if (error.code == "auth/email-already-in-use") {
+        return "Email já está em uso";
     }
     return error.message;
 }
@@ -84,6 +91,5 @@ const form = {
     password: () => document.getElementById('password'),
     passwordMinLengthError: () => document.getElementById('password-min-length-error'),
     passwordRequiredError: () => document.getElementById('password-required-error'),
-    registerButton: () => document.getElementById('register-button'),
-
+    registerButton: () => document.getElementById('register-button')
 }
