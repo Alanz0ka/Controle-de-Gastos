@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Controle de gastos</title>
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <form action="">
         <div>
             <div><label for="email">Email</label></div>
-            <input type="email" name="email" id="email" placeholder="seu@email.com">
+            <input type="email" name="email" id="email" placeholder="seu@email.com" onchange="validateFields()">
         </div>
         <div>
             <div><label for="password">Senha</label></div>
-            <input type="password" name="password" placeholder="Senha">
+            <input type="password" name="password" placeholder="Senha" id="password" onchange="validateFields()">
         </div>
         <div>
-            <button type="button" class="clear">Recuperar senha</button>
+            <button type="button" class="clear" disabled="true" id="recover-password-button">Recuperar senha</button>
         </div>
         <div>
-            <button type="button" class="solid">Entrar</button>
+            <button type="button" class="solid" disabled="true" id="login-button">Entrar</button>
         </div>
         <div>
             <button type="button" class="outline">Registrar</button>
         </div>
     </form>
 </body>
+<link rel="stylesheet" href="index.css">
 <script src="index.js"></script>
 </html>
