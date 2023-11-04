@@ -28,6 +28,12 @@ button[disabled] {
     opacity: 0.8;
 }
 
+input,
+button {
+   padding: 10px;
+   width: -webkit-fill-available;
+}
+
 .clear {
     background: transparent;
     border: none;
@@ -49,3 +55,7 @@ button[disabled] {
     color: white;
     display: none;
 } 
+
+.form-field {
+    margin-bottom: 10px;
+}
