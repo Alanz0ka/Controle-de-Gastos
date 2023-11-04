@@ -7,9 +7,13 @@ function logout(){
 findTransactions();
 
 function findTransactions(){
-    setTimeout(() => {
-        addTransactionsToScreen(fakeTransactions);
-    }, 1000)
+    firebase.firestore()
+        .collection("transactions")
+        .get()
+        .then(snapshot => {
+            const transactions = snapshot.docs.map(doc => doc.data());
+            addTransactionsToScreen(transactions)
+        })
 }
 
 function addTransactionsToScreen(transactions){
@@ -49,42 +53,3 @@ function formatDate(date) {
 function formatMoney(money) {
     return `${money.currency} ${money.value.toFixed(2)}`
 }
-
-const fakeTransactions = [{
-    type: "expense",
-    date: "2022-01-04",
-    money: {
-        currency: "R$",
-        value: 10
-    },
-    transactionType: "Supermercado"
-}, {
-    type: "expense",
-    date: "2022-01-03",
-    money: {
-        currency: "R$",
-        value: 37
-    },
-    transactionType: "Transporte",
-    description: "Uber"
-}, {
-    type: "income",
-    date: "2022-01-01",
-    money: {
-        currency: "EUR",
-        value: 220
-    },
-    transactionType: "Salário",
-    description: "Empresa A"
-}, {
-    type: "expense",
-    date: "2022-01-01",
-    money: {
-        currency: "USD",
-        value: 87
-    },
-    transactionType: "Aluguel",
-    description: "Mensalidade"
-}
-
-]
