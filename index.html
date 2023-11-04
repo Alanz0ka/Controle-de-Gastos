@@ -33,4 +33,25 @@
 <link rel="stylesheet" href="global.css">
 <script src="index.js"></script>
 <script src="validations.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.2/firebase-auth-compat.js"></script>
+<script>
+    const firebaseConfig = {
+        apiKey: "AIzaSyA6nIPvtLPwg21cxgtSPBUBGuaAg3Va4kQ",
+        authDomain: "controle-de-gastos-2fc38.firebaseapp.com",
+        projectId: "controle-de-gastos-2fc38",
+        storageBucket: "controle-de-gastos-2fc38.appspot.com",
+        messagingSenderId: "222413456303",
+        appId: "1:222413456303:web:76e2731d5e295a110ee55a",
+        measurementId: "G-C3L5WZFHBX"
+      };
+      firebase.initializeApp(firebaseConfig)
+      console.log("antes")
+      firebase.auth().signInWithEmailAndPassword("alan@v.coneragir.org", "123456").then(response => {
+        console.log("success", response)
+      }).catch(error => {
+        console.log("error", error)
+      });
+      console.log("depois")
+</script>
 </html>
